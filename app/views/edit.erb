@@ -1,0 +1,25 @@
+<% if @recipe && @recipe.errors %>
+    <% @recipe.errors.full_messages.each do |msg| %>
+        <p style="color: red;"><%= msg %></p>
+    <% end %>
+<% end %>
+
+<h1> Edit Your Recipe</h1>
+<form method="POST" action="/recipes/<%= @recipe.id %>">
+
+    <input id="hidden" type="hidden" name="_method" value="patch">
+
+    <input type="text" name="name" placeholder="Name" value="<%= @recipe ? @recipe.name : ""%>">
+    
+    <br>   
+
+    <input type="text"  name="ingredients" placeholder="Ingredients" value="<%= @recipe ? @recipe.ingredients : ""%>">
+
+    <br>
+
+    <input type="text"  name="cook_time" placeholder="Cook Time" value="<%= @recipe ? @recipe.cook_time : ""%>">
+
+    <br>
+
+    <input type="submit">
+</form>
