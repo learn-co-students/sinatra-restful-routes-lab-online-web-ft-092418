@@ -19,3 +19,9 @@ group :test do
   gem 'capybara'
   gem 'rack-test'
 end
+
+
+
+group :development do
+  gem 'pry'
+end
